@@ -1,0 +1,22 @@
+# requirements.txt - for pip / virtualenv installs
+# NOTE: many GIS packages (geopandas, rasterio, fiona, pyproj) have binary dependencies
+# and install more reliably via conda/conda-forge. Use this with venv only when conda is not available.
+
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+jupyterlab
+xarray
+dask
+folium
+
+# GIS libraries (pip may fail on some systems; prefer conda-forge)
+geopandas
+rasterio
+fiona
+pyproj
+shapely
+rtree
+contextily

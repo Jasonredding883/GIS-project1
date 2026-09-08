@@ -1,0 +1,27 @@
+name: gis-project1
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pandas
+  - numpy
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - jupyterlab
+  - xarray
+  - dask
+  - folium
+  # GIS / spatial stack
+  - geopandas
+  - rasterio
+  - fiona
+  - pyproj
+  - shapely
+  - rtree
+  - contextily
+  - pip
+  - pip:
+    # Add any Python-only packages that should be installed via pip
+    - some-pip-only-package==0.0.1

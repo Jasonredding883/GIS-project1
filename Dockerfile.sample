@@ -1,0 +1,21 @@
+# Example Dockerfile using mamba (conda-forge) to create the environment
+FROM continuumio/miniconda3
+
+# Install mamba in base
+RUN conda install -n base -c conda-forge mamba -y
+
+# Copy environment file and create env
+COPY environment.yml /tmp/environment.yml
+RUN mamba env create -f /tmp/environment.yml
+
+# Activate environment for subsequent commands
+SHELL ["conda", "run", "-n", "gis-project1", "/bin/bash", "-lc"]
+
+# Set PATH so conda env is default (optional)
+ENV PATH /opt/conda/envs/gis-project1/bin:$PATH
+
+WORKDIR /home/jovyan/work
+EXPOSE 8888
+
+# Start Jupyter lab
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root", "--NotebookApp.token=''"]
